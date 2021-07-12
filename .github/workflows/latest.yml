@@ -1,0 +1,32 @@
+name: latest
+
+on:
+  push:
+    paths:
+      - Dockerfile
+      - app.py
+
+  workflow_dispatch:
+
+env:
+  DOCKER_BASE_NAME: slashnephy/m2ts-classifier
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build & Push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ env.DOCKER_BASE_NAME }}:latest
