@@ -1,7 +1,5 @@
 # m2ts-classifier
 
-[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/slashnephy/m2ts-classifier/latest)](https://hub.docker.com/r/slashnephy/m2ts-classifier)
-
 🧹 m2ts ファイルを作品ごとにシンボリックリンクを作成し, 整理します
 
 ![screenshot1.png](https://i.imgur.com/XSjwXO7.png)
@@ -20,7 +18,7 @@
 services:
   classifier:
     container_name: m2ts-classifier
-    image: slashnephy/m2ts-classifier
+    image: ghcr.io/slashnephy/m2ts-classifier:master
     volumes:
       - /mnt:/mnt:ro
       - /mnt/links:/mnt/links
