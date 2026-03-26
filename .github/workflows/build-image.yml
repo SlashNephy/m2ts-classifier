@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   build:
-    uses: SlashNephy/.github/.github/workflows/docker-build.yml@master
+    uses: SlashNephy/.github/.github/workflows/docker-build.yml@2b64691f87d64d627f89946fb6f21169ddffc8b0 # master
     with:
       image-name: ghcr.io/slashnephy/m2ts-classifier
       image-platforms: linux/amd64
